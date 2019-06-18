@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/OpenTable-ReactApp/precache-manifest.9acf86867182847037edad4c669aa3fe.js"
+  "/OpenTable-ReactApp/precache-manifest.da293c5108af501ffb7d8e584c2fbffe.js"
 );
 
 self.addEventListener('message', (event) => {

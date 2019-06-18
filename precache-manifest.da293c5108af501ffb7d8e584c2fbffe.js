@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7f03879692d2623ed2d9d137db6b90c7",
+    "revision": "70d4e48d1d687c461ea469d59515c9e0",
     "url": "/OpenTable-ReactApp/index.html"
   },
   {
-    "revision": "552a751de5d3da7f7780",
+    "revision": "86c3c4b20e865ed6131e",
     "url": "/OpenTable-ReactApp/static/css/main.ed69065f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/OpenTable-ReactApp/static/js/2.eb636cfe.chunk.js"
   },
   {
-    "revision": "552a751de5d3da7f7780",
-    "url": "/OpenTable-ReactApp/static/js/main.1ee6a995.chunk.js"
+    "revision": "86c3c4b20e865ed6131e",
+    "url": "/OpenTable-ReactApp/static/js/main.0f9fd9f2.chunk.js"
   },
   {
     "revision": "b3d4202dde5517854caa",
