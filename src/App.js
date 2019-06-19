@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import Navbar from "./components/layout/Navbar";
-import Users from "./components/users/Users";
-import Search from "./components/users/Search";
+import Restaurant from "./components/restaurants/Restaurant";
+import Search from "./components/restaurants/Search";
 import "./App.css";
 class App extends Component {
   state = {
-    users: [],
+    restaurants: [],
     loading: false
   };
 
-  searchUsers = text => {
+  searchRestaurant = text => {
     fetch(`https://opentable.herokuapp.com/api/restaurants?city=${text}`)
       .then(function(res) {
         return res.json();
@@ -17,14 +17,14 @@ class App extends Component {
       .then(function(data) {
         console.log(data.restaurants);
         let output = "";
-        data.restaurants.forEach(function(user) {
+        data.restaurants.forEach(function(restaurant) {
           output += `<div class="list-items"><a href=${
-            user.reserve_url
-          } target="_blank"><img src=${user.image_url}></a><ul><li>Name: ${
-            user.name
-          }</li><li>Address: ${user.address}</li><li>Price: ${
-            user.price
-          }</li></ul></div>`;
+            restaurant.reserve_url
+          } target="_blank"><img src=${
+            restaurant.image_url
+          }></a><ul><li>Name: ${restaurant.name}</li><li>Address: ${
+            restaurant.address
+          }</li><li>Price: ${restaurant.price}</li></ul></div>`;
         });
 
         document.getElementById("output").innerHTML = output;
@@ -39,8 +39,11 @@ class App extends Component {
       <div className='App'>
         <Navbar />
         <div className='container'>
-          <Search searchUsers={this.searchUsers} />
-          <Users loading={this.state.loading} users={this.state.users} />
+          <Search searchRestaurant={this.searchRestaurant} />
+          <Restaurant
+            loading={this.state.loading}
+            restaurants={this.state.restaurants}
+          />
         </div>
       </div>
     );

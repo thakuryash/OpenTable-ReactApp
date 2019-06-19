@@ -7,7 +7,7 @@ export class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.searchUsers(this.state.text);
+    this.props.searchRestaurant(this.state.text);
     this.setState({ text: "" });
   };
 
@@ -20,7 +20,7 @@ export class Search extends Component {
           <input
             type='text'
             name='text'
-            placeholder='Search Restuarants....'
+            placeholder='Search Restuarants with city name....'
             value={this.state.text}
             onChange={this.onChange}
           />

@@ -2,7 +2,7 @@ import React from "react";
 
 import Spinner from "../layout/Spinner";
 
-const Users = ({ users, loading }) => {
+const Restaurant = ({ restaurants, loading }) => {
   if (loading) {
     return <Spinner />;
   } else {
@@ -10,4 +10,4 @@ const Users = ({ users, loading }) => {
   }
 };
 
-export default Users;
+export default Restaurant;
