@@ -15,7 +15,7 @@ class App extends Component {
         return res.json();
       })
       .then(function(data) {
-        console.log(data.restaurants);
+        //console.log(data.restaurants);
         let output = "";
         data.restaurants.forEach(function(restaurant) {
           output += `<div class="list-items"><a href=${
