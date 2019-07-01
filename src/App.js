@@ -3,33 +3,51 @@ import Navbar from "./components/layout/Navbar";
 import Restaurant from "./components/restaurants/Restaurant";
 import Search from "./components/restaurants/Search";
 import "./App.css";
+
 class App extends Component {
-  state = {
-    restaurants: [],
-    loading: false
-  };
+  constructor() {
+    super();
+    this.state = {
+      restaurants: [],
+      loading: false
+    };
+
+    //bindings
+    this.searchRestaurant = this.searchRestaurant.bind(this);
+  }
 
   searchRestaurant = text => {
+    //loading animation
+    this.setState({ loading: true });
+
     fetch(`https://opentable.herokuapp.com/api/restaurants?city=${text}`)
-      .then(function(res) {
+      .then(res => {
         return res.json();
       })
-      .then(function(data) {
+      .then(data => {
         //console.log(data.restaurants);
-        let output = "";
-        data.restaurants.forEach(function(restaurant) {
-          output += `<div class="list-items"><a href=${
-            restaurant.reserve_url
-          } target="_blank"><img src=${
-            restaurant.image_url
-          }></a><ul><li>Name: ${restaurant.name}</li><li>Address: ${
-            restaurant.address
-          }</li><li>Price: ${restaurant.price}</li></ul></div>`;
+        let output = data.restaurants.map((restaurant, i) => {
+          return (
+            <div key={i} className='list-items'>
+              <a href={restaurant.reserve_url} target='_blank'>
+                <img src={restaurant.image_url} />
+              </a>
+              <ul>
+                <li>Name: {restaurant.name}</li>
+                <li>Address: {restaurant.address}</li>
+                <li>Price: {restaurant.price}</li>
+              </ul>
+            </div>
+          );
         });
 
-        document.getElementById("output").innerHTML = output;
+        //update state
+        this.setState({
+          restaurants: output,
+          loading: false
+        });
       })
-      .catch(function(err) {
+      .catch(err => {
         console.log(err);
       });
   };

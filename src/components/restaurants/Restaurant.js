@@ -6,7 +6,7 @@ const Restaurant = ({ restaurants, loading }) => {
   if (loading) {
     return <Spinner />;
   } else {
-    return <div id='output' />;
+    return <div id='output'>{restaurants}</div>;
   }
 };
 
